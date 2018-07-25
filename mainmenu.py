@@ -50,8 +50,8 @@ class mainmenu():
 
 	def check(self):
 		if self.cur == 1:
-			return exit(),Game()
-			pass
+			return Game()
+			
 		if self.cur == 3:
 			return exit()
 	def on_key_press(self,symbol,modifiers):
@@ -82,10 +82,3 @@ class mainmenu():
 
 mainmenu()
 
-
-#TODO:
-#
-#2. selection rectangle
-#3. enter(key) selects the option
-#
-#

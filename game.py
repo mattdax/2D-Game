@@ -16,7 +16,7 @@ class Game():
 		#Create Variables
 		self.playerLocationX=0
 		self.playerLocationY=0
-		
+		self.health = 100		
 		self.directionX = 0
 		self.directionY = 0
 
@@ -66,6 +66,10 @@ class Game():
 		#Player image load
 		self.p1Load = pyglet.image.load("assets\\Up.png")
 		self.Player = pyglet.sprite.Sprite(self.p1Load,y=self.height//2,x=self.width//2)
+
+		#Health bar
+		self.Health = pyglet.text.Label(str(self.health)+"%",font_size=15,
+                         x=950, y=500,color=(000,000,000,200),anchor_x='center', anchor_y='top')
 	
 	def playerShape(self):
 		self.Player = pyglet.sprite.Sprite(self.p1Load,y=self.height//2,x=self.width//2)	
@@ -84,7 +88,7 @@ class Game():
 		self.OutsideBot.draw()
 		self.Map.draw()
 		self.Player.draw()
-
+		self.Health.draw()
 		#For Moving
 	def on_text_motion(self,motion):
 		if(motion == pyglet.window.key.MOTION_UP):
