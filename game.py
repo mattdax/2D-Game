@@ -1,5 +1,13 @@
+
+
+# Library Imports
 import pyglet
+
+
+# Script Imports
 from MapGen import gen
+
+
 class Game():
 	def __init__(self):
 		self.height = 2048//4
@@ -41,13 +49,14 @@ class Game():
 	def loadImages(self):
 		self.GameWindow.clear()
 		
-		self.outLoad=pyglet.image.load("Outside.png")
+
+		#Loads the map boundary
+		self.outLoad=pyglet.image.load("assets\\Outside.png")
 		self.OutsideBot = pyglet.sprite.Sprite(self.outLoad,y=-1200,x=-1024)
-		#self.OutsideRight = pyglet.sprite.Sprite(self.outLoad,y=0,x=-1600)
-		#self.OutsideLeft = pyglet.sprite.Sprite(self.outLoad,y=0,x=-1500)
+	
 		
 		#Map Load
-		self.mapLoad = pyglet.image.load("Map.png")
+		self.mapLoad = pyglet.image.load("assets\\Map.png")
 		self.Map = pyglet.sprite.Sprite(self.mapLoad,y=0,x=0)
 		
 		#Player Spawn Location
@@ -55,15 +64,13 @@ class Game():
 		self.playerLocationY = self.Map.y+(self.height//2)+2048-2560
 		
 		#Player image load
-		self.p1Load = pyglet.image.load("p1.png")
+		self.p1Load = pyglet.image.load("assets\\p1.png")
 		self.Player = pyglet.sprite.Sprite(self.p1Load,y=self.height//2,x=self.width//2)
 	
+	#Changes the location of the player 
 	def updatePlayerLocation(self):
-		#self.oldLocationX = self.playerLocationX
-		#self.oldLocationY = self.playerLocationY
 		self.playerLocationX = self.Map.x+(self.width//2)+1024-2048
 		self.playerLocationY = self.Map.y+(self.height//2)+2048-2560
-		#self.checkIfWater()
 
 	#Checks if player is running into water	
 	def checkIfWater(self):
@@ -127,7 +134,7 @@ class Game():
 					self.Map.x-=64
 				self.directionX = 0
 			#print("Player:"+str(self.playerLocationX)+","+str(self.playerLocationY))
-			print("Map:"+str(self.Map.x)+","+str(self.Map.y))
+			#print("Map:"+str(self.Map.x)+","+str(self.Map.y))
 		self.updatePlayerLocation()
 		
 		#DONT DELETE FOR BUG FIXING

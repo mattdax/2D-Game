@@ -2,9 +2,8 @@ from PIL import Image
 from random import randint
 def gen():
 	#opens an image:
-	Grass = Image.open("Green.png")
-	Water = Image.open("Blue.png")
-	Outside = Image.open("Black.png")
+	Grass = Image.open("assets\\Green.png")
+	Water = Image.open("assets\\Blue.png")
 	#creates a new empty image, RGB mode, and size 400 by 400.
 	Map = Image.new('RGB', (2048,2048))
 
@@ -28,5 +27,5 @@ def gen():
 	        	Map.paste(Grass, (i,j))
 	        if status[i//64][j//64]==2:
 	        	Map.paste(Water, (i,j))
-	Map.save("Map.png")
+	Map.save("assets\\Map.png")
 	return status
