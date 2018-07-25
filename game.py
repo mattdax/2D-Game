@@ -64,9 +64,11 @@ class Game():
 		self.playerLocationY = self.Map.y+(self.height//2)+2048-2560
 		
 		#Player image load
-		self.p1Load = pyglet.image.load("assets\\p1.png")
+		self.p1Load = pyglet.image.load("assets\\Up.png")
 		self.Player = pyglet.sprite.Sprite(self.p1Load,y=self.height//2,x=self.width//2)
 	
+	def playerShape(self):
+		self.Player = pyglet.sprite.Sprite(self.p1Load,y=self.height//2,x=self.width//2)	
 	#Changes the location of the player 
 	def updatePlayerLocation(self):
 		self.playerLocationX = self.Map.x+(self.width//2)+1024-2048
@@ -93,7 +95,10 @@ class Game():
 				if self.checkIfWater() == True:
 					pass
 				else:
+					self.p1Load = pyglet.image.load("assets\\Up.png")
+					self.playerShape()
 					self.Map.y-=64
+
 				self.directionY = 0
 			#print("Player:"+str(self.playerLocationX)+","+str(self.playerLocationY))
 			#print("Map:"+str(self.Map.x)+","+str(self.Map.y))
@@ -105,6 +110,8 @@ class Game():
 				if self.checkIfWater() == True:
 					pass
 				else:
+					self.p1Load = pyglet.image.load("assets\\Down.png")
+					self.playerShape()
 					self.Map.y+=64
 				self.directionY = 0
 			#print("Player:"+str(self.playerLocationX)+","+str(self.playerLocationY))
@@ -118,6 +125,8 @@ class Game():
 					pass
 				else:
 					self.Map.x+=64
+					self.p1Load = pyglet.image.load("assets\\Left.png")
+					self.playerShape()
 				self.directionX = 0
 			
 			#print("Player:"+str(self.playerLocationX)+","+str(self.playerLocationY))
@@ -132,6 +141,8 @@ class Game():
 					pass
 				else:
 					self.Map.x-=64
+					self.p1Load = pyglet.image.load("assets\\Right.png")
+					self.playerShape()
 				self.directionX = 0
 			#print("Player:"+str(self.playerLocationX)+","+str(self.playerLocationY))
 			#print("Map:"+str(self.Map.x)+","+str(self.Map.y))
