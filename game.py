@@ -2,8 +2,8 @@
 
 # Library Imports
 import pyglet
-
-
+from NameGen import generate_word
+from random import randint
 # Script Imports
 from MapGen import gen
 
@@ -44,7 +44,14 @@ class Game():
 	def mapGen(self):
 		self.map = gen()
 		self.loadImages()
+		self.createNPC()
+	def createNPC(self):
+		numNPC = randint(1,3)
+		namesNPC = {}
+		for i in range(0,numNPC+1,1):
+			namesNPC[i] = (generate_word(randint(5,9)))
 
+		for i in range(0,numNPC,)
 		#Loads the created map, and character
 	def loadImages(self):
 		self.GameWindow.clear()

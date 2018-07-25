@@ -35,4 +35,3 @@ def gen():
 	Map.save("assets\\Map.png")
 	return status
 
-gen()
