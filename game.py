@@ -152,4 +152,5 @@ class Game():
 		print((self.playerLocationX//64)*-1,-1*((self.playerLocationY)//64))
 		print(self.map[(self.playerLocationX//64)*-1][-1*((self.playerLocationY)//64)])
 
-Game()
+if __name__ == '__main__':
+	game = Game()
